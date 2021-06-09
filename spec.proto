@@ -1,0 +1,10 @@
+syntax = "proto3";
+package TerraformStation;
+
+message TFCommandInput {
+    string command = 1;
+}
+
+message TFCommandResult {
+    string result = 1;
+}

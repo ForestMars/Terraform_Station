@@ -15,7 +15,7 @@ help:
 # Build the application
 build: proto
 	@echo "Building OpenTofu Station..."
-	go build -o bin/opentofu-station main.go
+	go build -o bin/opentofu-station ./cmd/opentofu-station
 
 # Run tests
 test: proto

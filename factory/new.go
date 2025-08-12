@@ -1,9 +1,9 @@
 package factory
 
 import (
-	"github.com/go-gorm/gorm"
 	"github.com/ForestMars/TerraformStation"
 	"github.com/ForestMars/TerraformStation/internal"
+	"gorm.io/gorm"
 )
 
 var _ TerraformStation.TerraformStationService = (*internal.TerraformStationImpl)(nil)

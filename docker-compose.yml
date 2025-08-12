@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  opentofu-station:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_DRIVER=postgres
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=opentofu
+      - DB_PASSWORD=opentofu123
+      - DB_DATABASE=opentofu_station
+      - DB_SSL_MODE=disable
+      - OPENTOFU_PATH=/usr/bin/tofu
+      - WORKING_DIRECTORY=/app/tofu
+      - LOG_LEVEL=debug
+    volumes:
+      - ./tofu:/app/tofu
+      - ./config:/app/config
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - opentofu-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=opentofu
+      - POSTGRES_PASSWORD=opentofu123
+      - POSTGRES_DB=opentofu_station
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - opentofu-network
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - opentofu-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  opentofu-network:
+    driver: bridge

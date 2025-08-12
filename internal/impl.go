@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gorm/gorm"
 	"github.com/ForestMars/TerraformStation"
+	"gorm.io/gorm"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 

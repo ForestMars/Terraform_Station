@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/ForestMars/TerraformStation"
-	"github.com/ForestMars/TerraformStation/factory"
 )
 
 var tfCommandCases = []struct {

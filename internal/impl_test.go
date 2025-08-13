@@ -53,7 +53,7 @@ func TestTFCommand(t *testing.T) {
 
 	// Create test configuration
 	cfg := TerraformStation.DefaultConfig()
-	cfg.TerraformPath = "echo" // Use echo for testing
+	cfg.OpenTofuPath = "echo" // Use echo for testing
 	cfg.WorkingDirectory = "/tmp"
 
 	// Create implementation

@@ -18,6 +18,7 @@ func TestNew(t *testing.T) {
 
 	// Create test configuration
 	cfg := TerraformStation.DefaultConfig()
+	cfg.WorkingDirectory = "/tmp" // Use a directory that exists
 
 	// Test successful creation
 	impl, err := New(db, cfg)

@@ -1,0 +1,56 @@
+# OpenTofu Station Configuration
+
+# OpenTofu configuration
+opentofu_path: "tofu"
+working_directory: "./tofu"
+timeout: "30m"
+
+# Database configuration
+database:
+  driver: "sqlite"  # or "postgres"
+  host: "localhost"
+  port: 5432
+  username: "opentofu"
+  password: "opentofu123"
+  database: "opentofu_station"
+  ssl_mode: "disable"
+
+# Logging configuration
+log_level: "info"  # debug, info, warn, error
+
+# API configuration
+port: "8080"
+host: "localhost"
+enable_cors: true
+
+# Security configuration
+security:
+  enable_auth: false
+  jwt_secret: ""
+  allowed_origins: ["*"]
+
+# OpenTofu provider configuration
+providers:
+  aws:
+    region: "us-west-2"
+    profile: "default"
+  azure:
+    subscription_id: ""
+    tenant_id: ""
+  gcp:
+    project_id: ""
+    region: "us-central1"
+
+# Backup configuration
+backup:
+  enable: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  storage_path: "./backups"
+
+# Monitoring configuration
+monitoring:
+  enable_metrics: true
+  metrics_port: "9090"
+  enable_health_check: true
+  health_check_interval: "30s"

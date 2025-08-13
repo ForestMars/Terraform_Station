@@ -1,10 +1,66 @@
 syntax = "proto3";
 package TerraformStation;
 
+option go_package = "github.com/ForestMars/TerraformStation";
+
+import "google/protobuf/timestamp.proto";
+
+// Terraform command input
 message TFCommandInput {
     string command = 1;
+    string working_directory = 2;
+    map<string, string> variables = 3;
+    repeated string arguments = 4;
+    string plan_file = 5;
+    string state_file = 6;
 }
 
+// Terraform command result
 message TFCommandResult {
     string result = 1;
+    bool success = 2;
+    string error_message = 3;
+    int32 exit_code = 4;
+    google.protobuf.Timestamp executed_at = 5;
+    string command_id = 6;
+}
+
+// Terraform plan result
+message TFPlanResult {
+    string plan_id = 1;
+    string plan_output = 2;
+    bool has_changes = 3;
+    int32 resource_count = 4;
+    google.protobuf.Timestamp created_at = 5;
+    string status = 6;
+}
+
+// Terraform apply result
+message TFApplyResult {
+    string apply_id = 1;
+    string apply_output = 2;
+    bool success = 3;
+    int32 resources_added = 4;
+    int32 resources_changed = 5;
+    int32 resources_destroyed = 6;
+    google.protobuf.Timestamp executed_at = 7;
+}
+
+// Terraform state information
+message TFStateInfo {
+    string state_id = 1;
+    string state_file = 2;
+    int32 resource_count = 3;
+    google.protobuf.Timestamp last_updated = 4;
+    string terraform_version = 5;
+}
+
+// Service definition
+service TerraformStationService {
+    rpc TFCommand(TFCommandInput) returns (TFCommandResult);
+    rpc TFPlan(TFCommandInput) returns (TFPlanResult);
+    rpc TFApply(TFCommandInput) returns (TFApplyResult);
+    rpc TFInit(TFCommandInput) returns (TFCommandResult);
+    rpc TFValidate(TFCommandInput) returns (TFCommandResult);
+    rpc TFState(TFCommandInput) returns (TFStateInfo);
 }

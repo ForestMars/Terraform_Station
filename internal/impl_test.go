@@ -87,6 +87,7 @@ func TestValidateWorkingDirectory(t *testing.T) {
 
 	// Create test configuration
 	cfg := TerraformStation.DefaultConfig()
+	cfg.WorkingDirectory = "/tmp" // Use a directory that exists
 
 	// Create implementation
 	impl, err := New(db, cfg)
@@ -108,6 +109,7 @@ func TestGetConfig(t *testing.T) {
 
 	// Create test configuration
 	cfg := TerraformStation.DefaultConfig()
+	cfg.WorkingDirectory = "/tmp" // Use a directory that exists
 
 	// Create implementation
 	impl, err := New(db, cfg)

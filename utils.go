@@ -30,7 +30,7 @@ func (e *OpenTofuExecutor) Execute(ctx context.Context, workingDir string, args 
 	defer cancel()
 
 	// Validate working directory
-	if err := e.validateWorkingDirectory(workingDir); err != nil {
+	if err := e.ValidateWorkingDirectory(workingDir); err != nil {
 		return "", err
 	}
 
@@ -53,8 +53,8 @@ func (e *OpenTofuExecutor) Execute(ctx context.Context, workingDir string, args 
 	return string(output), nil
 }
 
-// validateWorkingDirectory checks if the working directory is valid
-func (e *OpenTofuExecutor) validateWorkingDirectory(dir string) error {
+// ValidateWorkingDirectory checks if the working directory is valid
+func (e *OpenTofuExecutor) ValidateWorkingDirectory(dir string) error {
 	if dir == "" {
 		return NewWorkingDirError("working directory cannot be empty")
 	}

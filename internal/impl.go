@@ -3,7 +3,6 @@ package internal
 import (
 	"context"
 	"strings"
-	"time"
 
 	"github.com/ForestMars/TerraformStation"
 	"gorm.io/gorm"

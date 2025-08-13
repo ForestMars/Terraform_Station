@@ -15,7 +15,6 @@ import (
 
 func main() {
 	// Parse command line flags
-	configFile := flag.String("config", "", "Path to configuration file")
 	opentofuPath := flag.String("opentofu", "tofu", "Path to opentofu binary")
 	workingDir := flag.String("workdir", "./tofu", "Working directory for OpenTofu operations")
 	port := flag.String("port", "8080", "Port to listen on")

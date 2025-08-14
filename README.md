@@ -1,6 +1,6 @@
 # OpenTofu Station
 
-A powerful Go-based API toolkit for managing OpenTofu provisioning operations with enterprise-grade features including database persistence, comprehensive logging, and robust error handling.
+A Go-based API toolkit for managing OpenTofu provisioning operations with enterprise-grade features including database persistence, comprehensive logging, and robust error handling.
 
 ## Features
 

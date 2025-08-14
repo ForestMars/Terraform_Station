@@ -2,7 +2,7 @@
 
 A powerful Go-based API toolkit for managing OpenTofu provisioning operations with enterprise-grade features including database persistence, comprehensive logging, and robust error handling.
 
-## 🚀 Features
+## Features
 
 - **OpenTofu Command Execution**: Execute any OpenTofu command with proper validation and error handling
 - **Database Persistence**: Store operation history, plans, and state information in PostgreSQL or SQLite
@@ -14,14 +14,14 @@ A powerful Go-based API toolkit for managing OpenTofu provisioning operations wi
 - **Working Directory Management**: Safe and validated working directory handling
 - **Timeout Management**: Configurable timeouts for long-running operations
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Go 1.21 or later
 - OpenTofu CLI installed and accessible
 - PostgreSQL (optional, SQLite is supported for development)
 - Protocol Buffers compiler (protoc)
 
-## 🛠️ Installation
+## Installation
 
 ### From Source
 
@@ -59,7 +59,7 @@ docker build -t opentofu-station .
 docker run -p 8080:8080 opentofu-station
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Basic Usage
 
@@ -109,7 +109,7 @@ database:
   --db-driver sqlite
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### Core Components
 
@@ -141,7 +141,7 @@ TerraformStation/
 └── docker-compose.yml  # Development environment
 ```
 
-## 🧪 Testing
+## Testing
 
 Run the test suite:
 
@@ -163,7 +163,7 @@ The project uses:
 - **SQLite**: In-memory database for testing
 - **GORM**: Database ORM for testing
 
-## 🔧 Development
+## Development
 
 ### Available Make Targets
 
@@ -198,7 +198,7 @@ make tofu-test     # Test OpenTofu commands manually
 - Include error handling for all operations
 - Write tests for new functionality
 
-## 📊 Database Schema
+## Database Schema
 
 The application uses the following database tables:
 
@@ -207,14 +207,14 @@ The application uses the following database tables:
 - **terraform_applies**: Stores apply results and resource counts
 - **terraform_states**: Stores state information and metadata
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - Working directory validation prevents directory traversal attacks
 - Command execution with proper timeout limits
 - Database connection security (SSL, authentication)
 - Input validation for all user-provided data
 
-## 🚨 Error Handling
+## Error Handling
 
 The application provides structured error handling with:
 
@@ -230,7 +230,7 @@ The application provides structured error handling with:
 - **Logging**: Structured logging with configurable levels
 - **Tracing**: Request tracing for debugging (planned)
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -239,11 +239,11 @@ The application provides structured error handling with:
 5. Ensure all tests pass
 6. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🆘 Support
+## Support
 
 For support and questions:
 
@@ -252,7 +252,7 @@ For support and questions:
 - Review the test examples
 - Examine the configuration options
 
-## 🔮 Roadmap
+## Roadmap
 
 - [ ] HTTP REST API endpoints
 - [ ] Web UI dashboard

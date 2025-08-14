@@ -223,7 +223,7 @@ The application provides structured error handling with:
 - **Context Information**: Additional details for debugging
 - **Error Recovery**: Graceful handling of common failure scenarios
 
-## 📈 Monitoring and Observability
+## Monitoring and Observability
 
 - **Health Checks**: Built-in health check endpoints
 - **Metrics**: Prometheus-compatible metrics (planned)

@@ -1,0 +1,69 @@
+style: github
+template: CHANGELOG.tpl.md
+info:
+  title: CHANGELOG
+  repository_url: https://github.com/ForestMars/TerraformStation
+  # styles for each components
+types:
+  - type: feat
+    section: "✨ Features"
+    hidden: false
+  - type: fix
+    section: "🐛 Bug Fixes"
+    hidden: false
+  - type: perf
+    section: "🚀 Performance"
+    hidden: false
+  - type: refactor
+    section: "♻️ Refactoring"
+    hidden: false
+  - type: docs
+    section: "📝 Documentation"
+    hidden: false
+  - type: test
+    section: "✅ Tests"
+    hidden: false
+  - type: chore
+    section: "🔧 Chores"
+    hidden: false
+  - type: ci
+    section: "🔧 CI/CD"
+    hidden: false
+  - type: style
+    section: "🎨 Style"
+    hidden: false
+  - type: revert
+    section: "⏪ Reverts"
+    hidden: false
+
+# Merge request kinds
+template_engine: "Go"
+
+# This is a Go template.
+# ref: https://golang.org/pkg/text/template/
+template: |
+  {{ if .Versions -}}
+  {{ range .Versions }}
+  {{ if .Tag.Previous }}
+  ## [{{ .Tag.Name }}]({{ $.Info.RepositoryURL }}/compare/{{ .Tag.Previous.Name }}...{{ .Tag.Name }})
+  {{ else }}
+  ## {{ .Tag.Name }}
+  {{- end }}
+
+  {{ range .CommitGroups -}}
+  ### {{ .Title }}
+  {{ range .Commits -}}
+  - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
+  {{ end }}
+  {{ end -}}
+
+  {{- if .NoteGroups -}}
+  {{ range .NoteGroups -}}
+  ### {{ .Title }}
+  {{ range .Notes }}
+  {{ .Body }}
+  {{ end }}
+  {{ end -}}
+  {{ end -}}
+  {{ end -}}
+  {{ end -}}

@@ -16,13 +16,13 @@ cd "$(dirname "$0")/../tofu"
 rm -f terraform.tfstate* || true
 rm -f hello.txt || true
 
-# Initialize Terraform
-echo -e "\n${GREEN}Initializing Terraform...${NC}"
-terraform init
+# Initialize OpenTofu
+echo -e "\n${GREEN}Initializing OpenTofu...${NC}"
+tofu init
 
 # Apply the configuration
-echo -e "\n${GREEN}Applying Terraform configuration...${NC}"
-terraform apply -auto-approve
+echo -e "\n${GREEN}Applying OpenTofu configuration...${NC}"
+tofu apply -auto-approve
 
 # Verify the file was created
 echo -e "\n${GREEN}Verifying file creation...${NC}"
@@ -46,7 +46,7 @@ echo -e "${GREEN}File created successfully with expected content!${NC}"
 
 # Clean up
 echo -e "\n${GREEN}Cleaning up...${NC}"
-terraform destroy -auto-approve
+tofu destroy -auto-approve
 rm -f terraform.tfstate* || true
 rm -f hello.txt || true
 

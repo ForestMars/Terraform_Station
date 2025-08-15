@@ -2,6 +2,8 @@
 
 A Go-based API toolkit for managing OpenTofu provisioning operations with enterprise-grade features including database persistence, comprehensive logging, and robust error handling.
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 ## Features
 
 - **OpenTofu Command Execution**: Execute any OpenTofu command with proper validation and error handling
@@ -10,6 +12,7 @@ A Go-based API toolkit for managing OpenTofu provisioning operations with enterp
 - **Configuration Management**: Flexible configuration with environment variables and config files
 - **Docker Support**: Ready-to-use Docker containers with docker-compose
 - **Testing Framework**: Comprehensive test suite with mocking support
+- **Smoke Testing**: Built-in smoke tests for core functionality
 - **Error Handling**: Structured error handling with error codes and detailed messages
 - **Working Directory Management**: Safe and validated working directory handling
 - **Timeout Management**: Configurable timeouts for long-running operations
@@ -143,6 +146,8 @@ TerraformStation/
 
 ## Testing
 
+### Running Tests
+
 Run the test suite:
 
 ```bash
@@ -154,6 +159,23 @@ go test -cover ./...
 
 # Run specific package tests
 go test ./internal/...
+
+# Run the smoke test
+./test/smoke_test.sh
+```
+
+### Smoke Testing
+
+The project includes a smoke test that verifies basic OpenTofu functionality by:
+1. Initializing OpenTofu
+2. Creating a local file with expected content
+3. Verifying the file was created correctly
+4. Cleaning up test resources
+
+To run just the smoke test:
+```bash
+chmod +x test/smoke_test.sh
+./test/smoke_test.sh
 ```
 
 ### Test Dependencies
@@ -180,6 +202,7 @@ make lint          # Lint code
 make deps          # Install dependencies
 make sample-tofu   # Create sample OpenTofu directory
 make tofu-test     # Test OpenTofu commands manually
+make smoke-test    # Run the smoke test
 ```
 
 ### Adding New Features
@@ -189,6 +212,10 @@ make tofu-test     # Test OpenTofu commands manually
 3. **Implement Service**: Add implementation in `internal/impl.go`
 4. **Add Tests**: Create tests in the appropriate package
 5. **Update Models**: Add database models if needed
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ### Code Style
 
@@ -241,7 +268,7 @@ The application provides structured error handling with:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [Apache 2.0 License](LICENSE.md).
 
 ## Support
 

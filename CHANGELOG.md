@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Includes proper cleanup of test artifacts
   - Uses the `tofu` CLI for OpenTofu operations
 
-## [0.1.0] - YYYY-MM-DD
+## [0.1.0] - 2025-8-15
 
 ### Added
 - Initial project setup

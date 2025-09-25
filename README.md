@@ -215,7 +215,7 @@ make smoke-test    # Run the smoke test
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
+Contributions are welcome! Please read [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ### Code Style
 
